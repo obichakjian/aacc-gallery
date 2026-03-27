@@ -1,119 +1,602 @@
-[Alto 1 - Anne Bruienne.png,
-Alto 1 - Aprille McKay.png,
-Alto 1 - Carolyn King.png,
-Alto 1 - Carrie Throm.png,
-Alto 1 - Elise Haase.png,
-Alto 1 - Gemma Ribant.png,
-Alto 1 - Jennie Lieberman.png,
-Alto 1 - Jenny Brawn.png,
-Alto 1 - Johanna Eriksson.png,
-Alto 1 - Julia Cohen.png,
-Alto 1 - Larissa Baca.png,
-Alto 1 - Linda Anderson.png,
-Alto 1 - Lisa Pappas.png,
-Alto 1 - Marga Hampel.png,
-Alto 1 - Mary Ellen Weakley.png,
-Alto 1 - Mary White (2).png,
-Alto 1 - Mary White.png,
-Alto 1 - Meera Kumar.png,
-Alto 1 - Patricia Gold.png,
-Alto 1 - Rebecca Nieubuurt.png,
-Alto 1 - Sarah Spratt.png,
-Alto 1 - Sue Johnson.png,
-Alto 1 - Vania Rasche.png,
-Alto 1 - Veronique Liem.png,
-Alto 1 - Vicki Landau.png,
-Alto 1 - Virginia Bentz.png,
-Alto 1 - Yan Fu.png,
-Alto 1 - Yvonne Beadle.png,
-Alto 2 - Andrea Roe.png,
-Alto 2 - Brittany Latchford.png,
-Alto 2 - Carol Holden.png,
-Alto 2 - Carol Sickman-Garner.png,
-Alto 2 - Catherine Riseng.png,
-Alto 2 - Elaine Dexter.png,
-Alto 2 - Evelyn Magner.png,
-Alto 2 - Gayle Guzman.png,
-Alto 2 - IIene Tyler.png,
-Alto 2 - Jessica Lehr.png,
-Alto 2 - Karen Mendelson.png,
-Alto 2 - Kristin Klein.png,
-Alto 2 - Leslie Rutkowski.png,
-Alto 2 - Madeleine Krol.png,
-Alto 2 - Olga Lazareva.png,
-Alto 2 - Soryl Angel.png,
-Alto 2 - Susan Bryan.png,
-Alto 2 - Susan Egri.png,
-Baritone - Brad Richert.png,
-Baritone - David Carter.png,
-Baritone - Donald Frazier.png,
-Baritone - Edmund Durfee.png,
-Baritone - Jeffrey Kaplan.png,
-Baritone - Jim Eschman.png,
-Baritone - John Alexander.png,
-Baritone - Michael Weiss.png,
-Baritone - Sean Maybee.png,
-Baritone - Stan Hemstad.png,
-Baritone - William Weakley.png,
-Bass 1 - Palmer Morrel-Samuels.png,
-Bass 2 - Colin Brooks.png,
-Bass 2 - Cyril Zilka.png,
-Bass 2 - Evan Padgitt (2).png,
-Bass 2 - Evan Padgitt.png,
-Bass 2 - Glenn Simon.png,
-Bass 2 - Klaus Kirsten.png,
-Bass 2 - Peter Schermerhorn.png,
-Bass 2 - Richard Rupp.png,
-Bass 2 - Rick Cole.png,
-Bass 2 - Scott Hummel.png,
-Bass 2 - Scott Merwin.png,
-Director - Karen TenBrink.png,
-Pianist - Edward (Ted) Wyman.png,
-Soprano 1 - Ami Patel.png,
-Soprano 1 - Carmencita Princen.png,
-Soprano 1 - Deborah Green.png,
-Soprano 1 - Edith Kieffer.png,
-Soprano 1 - Gabrielle Gillard.png,
-Soprano 1 - Jane Heineken.png,
-Soprano 1 - Joanna Brod.png,
-Soprano 1 - Lisa Psarouthakis.png,
-Soprano 1 - Lois Andres.png,
-Soprano 1 - Monique Jost.png,
-Soprano 1 - Neeraja Aravamudan.png,
-Soprano 1 - Pamela Harnick.png,
-Soprano 1 - Patricia Kaminsky.png,
-Soprano 1 - Rebecca O'Brien.png,
-Soprano 1 - Samantha Li.png,
-Soprano 1 - Teresa Casey.png,
-Soprano 2 - Barbara Remboski.png,
-Soprano 2 - Caroline Roberts.png,
-Soprano 2 - Ellen Ramseyt.png,
-Soprano 2 - Emily Kania.png,
-Soprano 2 - Hyeyoung Ahn.png,
-Soprano 2 - Janice Kosta.png,
-Soprano 2 - Julia Blough.png,
-Soprano 2 - Kendall Buzzelli.png,
-Soprano 2 - Kim Lewis.png,
-Soprano 2 - Laura Rubin.png,
-Soprano 2 - Leslie Gilbert.png,
-Soprano 2 - Mary Norat.png,
-Soprano 2 - Patti Hogan.png,
-Soprano 2 - Rachel Blough.png,
-Soprano 2 - Safiyah Basir.png,
-Soprano 2 - Sonya Freiband.png,
-Soprano 2 - Susan Morrel-Samuels.png,
-Soprano 2 - Suzie Zick.png,
-Soprano 2 - Tsekyi Buchanan.png,
-Tenor 1 - Dorothy Luxton.png,
-Tenor 1 - Edward Thierbach.png,
-Tenor 1 - Frederik Heineken.png,
-Tenor 1 - Kristin Romelhardt.png,
-Tenor 1 - Lynn Heberlein.png,
-Tenor 1 - Patti Fitzpatrick.png,
-Tenor 1 - Wayne Bottomley.png,
-Tenor 2 - Brendan Kirwin.png,
-Tenor 2 - Chris White.png,
-Tenor 2 - Edward Diehl.png,
-Tenor 2 - Jeff Prenevost.png,
-Tenor 2 - Marie Jones.png,
-Tenor 2 - Tim McKay.png]
+[
+  {
+    "name": "Ellen Ramseyt",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Ellen Ramseyt.png"
+  },
+  {
+    "name": "Carolyn King",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Carolyn King.png"
+  },
+  {
+    "name": "Joanna Brod",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Joanna Brod.png"
+  },
+  {
+    "name": "Gabrielle Gillard",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Gabrielle Gillard.png"
+  },
+  {
+    "name": "Michael Weiss",
+    "voicepart": "Baritone",
+    "image": "photos/Baritone - Michael Weiss.png"
+  },
+  {
+    "name": "Frederik Heineken",
+    "voicepart": "Tenor 1",
+    "image": "photos/Tenor 1 - Frederik Heineken.png"
+  },
+  {
+    "name": "Mary Ellen Weakley",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Mary Ellen Weakley.png"
+  },
+  {
+    "name": "Mary Durfee",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Mary Durfee.png"
+  },
+  {
+    "name": "Carol Sickman-Garner",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Carol Sickman-Garner.png"
+  },
+  {
+    "name": "Meera Kumar",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Meera Kumar.png"
+  },
+  {
+    "name": "Evan Padgitt",
+    "voicepart": "Bass 2",
+    "image": "photos/Bass 2 - Evan Padgitt.png"
+  },
+  {
+    "name": "Lisa Pappas",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Lisa Pappas.png"
+  },
+  {
+    "name": "Jeff Prenevost",
+    "voicepart": "Tenor 2",
+    "image": "photos/Tenor 2 - Jeff Prenevost.png"
+  },
+  {
+    "name": "Oliver Bichakjian",
+    "voicepart": "Bass 2",
+    "image": "photos/Bass 2 - Oliver Bichakjian.png"
+  },
+  {
+    "name": "Gemma Ribant",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Gemma Ribant.png"
+  },
+  {
+    "name": "Evelyn Magner",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Evelyn Magner.png"
+  },
+  {
+    "name": "Kim Lewis",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Kim Lewis.png"
+  },
+  {
+    "name": "Aprille McKay",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Aprille McKay.png"
+  },
+  {
+    "name": "Carrie Throm",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Carrie Throm.png"
+  },
+  {
+    "name": "Linda Anderson",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Linda Anderson.png"
+  },
+  {
+    "name": "Sonya Freiband",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Sonya Freiband.png"
+  },
+  {
+    "name": "Carol Holden",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Carol Holden.png"
+  },
+  {
+    "name": "Sarah Spratt",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Sarah Spratt.png"
+  },
+  {
+    "name": "Marga Hampel",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Marga Hampel.png"
+  },
+  {
+    "name": "Rachel Blough",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Rachel Blough.png"
+  },
+  {
+    "name": "Lynn Heberlein",
+    "voicepart": "Tenor 1",
+    "image": "photos/Tenor 1 - Lynn Heberlein.png"
+  },
+  {
+    "name": "Brendan Kirwin",
+    "voicepart": "Tenor 2",
+    "image": "photos/Tenor 2 - Brendan Kirwin.png"
+  },
+  {
+    "name": "Ami Patel",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Ami Patel.png"
+  },
+  {
+    "name": "Dorothy Luxton",
+    "voicepart": "Tenor 1",
+    "image": "photos/Tenor 1 - Dorothy Luxton.png"
+  },
+  {
+    "name": "David Carter",
+    "voicepart": "Baritone",
+    "image": "photos/Baritone - David Carter.png"
+  },
+  {
+    "name": "Patricia Kaminsky",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Patricia Kaminsky.png"
+  },
+  {
+    "name": "Rebecca O'Brien",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Rebecca O'Brien.png"
+  },
+  {
+    "name": "Pamela Harnick",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Pamela Harnick.png"
+  },
+  {
+    "name": "Marie Jones",
+    "voicepart": "Tenor 2",
+    "image": "photos/Tenor 2 - Marie Jones.png"
+  },
+  {
+    "name": "IIene Tyler",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - IIene Tyler.png"
+  },
+  {
+    "name": "Susan Morrel-Samuels",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Susan Morrel-Samuels.png"
+  },
+  {
+    "name": "Patti Hogan",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Patti Hogan.png"
+  },
+  {
+    "name": "Jessica Lehr",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Jessica Lehr.png"
+  },
+  {
+    "name": "Scott Hummel",
+    "voicepart": "Bass 2",
+    "image": "photos/Bass 2 - Scott Hummel.png"
+  },
+  {
+    "name": "Chris White",
+    "voicepart": "Tenor 2",
+    "image": "photos/Tenor 2 - Chris White.png"
+  },
+  {
+    "name": "Susan Bryan",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Susan Bryan.png"
+  },
+  {
+    "name": "Kendall Buzzelli",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Kendall Buzzelli.png"
+  },
+  {
+    "name": "Monique Jost",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Monique Jost.png"
+  },
+  {
+    "name": "Olga Lazareva",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Olga Lazareva.png"
+  },
+  {
+    "name": "Edward (Ted) Wyman",
+    "voicepart": "Pianist",
+    "image": "photos/Pianist - Edward (Ted) Wyman.png"
+  },
+  {
+    "name": "Mary Norat",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Mary Norat.png"
+  },
+  {
+    "name": "Jim Eschman",
+    "voicepart": "Baritone",
+    "image": "photos/Baritone - Jim Eschman.png"
+  },
+  {
+    "name": "Donald Frazier",
+    "voicepart": "Baritone",
+    "image": "photos/Baritone - Donald Frazier.png"
+  },
+  {
+    "name": "Karen Mendelson",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Karen Mendelson.png"
+  },
+  {
+    "name": "Vicki Landau",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Vicki Landau.png"
+  },
+  {
+    "name": "Patti Fitzpatrick",
+    "voicepart": "Tenor 1",
+    "image": "photos/Tenor 1 - Patti Fitzpatrick.png"
+  },
+  {
+    "name": "Jane Heineken",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Jane Heineken.png"
+  },
+  {
+    "name": "Julia Blough",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Julia Blough.png"
+  },
+  {
+    "name": "Colin Brooks",
+    "voicepart": "Bass 2",
+    "image": "photos/Bass 2 - Colin Brooks.png"
+  },
+  {
+    "name": "Madeleine Krol",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Madeleine Krol.png"
+  },
+  {
+    "name": "Suzie Zick",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Suzie Zick.png"
+  },
+  {
+    "name": "Sean Maybee",
+    "voicepart": "Baritone",
+    "image": "photos/Baritone - Sean Maybee.png"
+  },
+  {
+    "name": "Emily Kania",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Emily Kania.png"
+  },
+  {
+    "name": "Kristin Romelhardt",
+    "voicepart": "Tenor 1",
+    "image": "photos/Tenor 1 - Kristin Romelhardt.png"
+  },
+  {
+    "name": "Vania Rasche",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Vania Rasche.png"
+  },
+  {
+    "name": "Wayne Bottomley",
+    "voicepart": "Tenor 1",
+    "image": "photos/Tenor 1 - Wayne Bottomley.png"
+  },
+  {
+    "name": "William Weakley",
+    "voicepart": "Baritone",
+    "image": "photos/Baritone - William Weakley.png"
+  },
+  {
+    "name": "Larissa Baca",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Larissa Baca.png"
+  },
+  {
+    "name": "Andrea Roe",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Andrea Roe.png"
+  },
+  {
+    "name": "Jennie Lieberman",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Jennie Lieberman.png"
+  },
+  {
+    "name": "Elaine Dexter",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Elaine Dexter.png"
+  },
+  {
+    "name": "Samantha Li",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Samantha Li.png"
+  },
+  {
+    "name": "Rick Cole",
+    "voicepart": "Bass 2",
+    "image": "photos/Bass 2 - Rick Cole.png"
+  },
+  {
+    "name": "Lisa Psarouthakis",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Lisa Psarouthakis.png"
+  },
+  {
+    "name": "Edith Kieffer",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Edith Kieffer.png"
+  },
+  {
+    "name": "Catherine Riseng",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Catherine Riseng.png"
+  },
+  {
+    "name": "Rebecca Nieubuurt",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Rebecca Nieubuurt.png"
+  },
+  {
+    "name": "Hyeyoung Ahn",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Hyeyoung Ahn.png"
+  },
+  {
+    "name": "Gayle Guzman",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Gayle Guzman.png"
+  },
+  {
+    "name": "Palmer Morrel-Samuels",
+    "voicepart": "Bass 1",
+    "image": "photos/Bass 1 - Palmer Morrel-Samuels.png"
+  },
+  {
+    "name": "Veronique Liem",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Veronique Liem.png"
+  },
+  {
+    "name": "Safiyah Basir",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Safiyah Basir.png"
+  },
+  {
+    "name": "Lois Andres",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Lois Andres.png"
+  },
+  {
+    "name": "Soryl Angel",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Soryl Angel.png"
+  },
+  {
+    "name": "Virginia Bentz",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Virginia Bentz.png"
+  },
+  {
+    "name": "Caroline Roberts",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Caroline Roberts.png"
+  },
+  {
+    "name": "Kristin Klein",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Kristin Klein.png"
+  },
+  {
+    "name": "Johanna Eriksson",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Johanna Eriksson.png"
+  },
+  {
+    "name": "Teresa Casey",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Teresa Casey.png"
+  },
+  {
+    "name": "Jenny Brawn",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Jenny Brawn.png"
+  },
+  {
+    "name": "Leslie Gilbert",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Leslie Gilbert.png"
+  },
+  {
+    "name": "Edmund Durfee",
+    "voicepart": "Baritone",
+    "image": "photos/Baritone - Edmund Durfee.png"
+  },
+  {
+    "name": "Jeffrey Kaplan",
+    "voicepart": "Baritone",
+    "image": "photos/Baritone - Jeffrey Kaplan.png"
+  },
+  {
+    "name": "Deborah Green",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Deborah Green.png"
+  },
+  {
+    "name": "Julia Cohen",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Julia Cohen.png"
+  },
+  {
+    "name": "Neeraja Aravamudan",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Neeraja Aravamudan.png"
+  },
+  {
+    "name": "Patricia Gold",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Patricia Gold.png"
+  },
+  {
+    "name": "Stan Hemstad",
+    "voicepart": "Baritone",
+    "image": "photos/Baritone - Stan Hemstad.png"
+  },
+  {
+    "name": "Yvonne Beadle",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Yvonne Beadle.png"
+  },
+  {
+    "name": "Susan Egri",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Susan Egri.png"
+  },
+  {
+    "name": "Tim McKay",
+    "voicepart": "Tenor 2",
+    "image": "photos/Tenor 2 - Tim McKay.png"
+  },
+  {
+    "name": "Anne Bruienne",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Anne Bruienne.png"
+  },
+  {
+    "name": "Leslie Rutkowski",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Leslie Rutkowski.png"
+  },
+  {
+    "name": "Edward Thierbach",
+    "voicepart": "Tenor 1",
+    "image": "photos/Tenor 1 - Edward Thierbach.png"
+  },
+  {
+    "name": "Teresa Wen",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Teresa Wen.png"
+  },
+  {
+    "name": "Carmencita Princen",
+    "voicepart": "Soprano 1",
+    "image": "photos/Soprano 1 - Carmencita Princen.png"
+  },
+  {
+    "name": "Edward Diehl",
+    "voicepart": "Tenor 2",
+    "image": "photos/Tenor 2 - Edward Diehl.png"
+  },
+  {
+    "name": "Karen TenBrink",
+    "voicepart": "Director",
+    "image": "photos/Director - Karen TenBrink.png"
+  },
+  {
+    "name": "John Alexander",
+    "voicepart": "Baritone",
+    "image": "photos/Baritone - John Alexander.png"
+  },
+  {
+    "name": "Janice Kosta",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Janice Kosta.png"
+  },
+  {
+    "name": "Sue Johnson",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Sue Johnson.png"
+  },
+  {
+    "name": "Elise Haase",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Elise Haase.png"
+  },
+  {
+    "name": "Cyril Zilka",
+    "voicepart": "Bass 2",
+    "image": "photos/Bass 2 - Cyril Zilka.png"
+  },
+  {
+    "name": "Mary White",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Mary White.png"
+  },
+  {
+    "name": "Richard Rupp",
+    "voicepart": "Bass 2",
+    "image": "photos/Bass 2 - Richard Rupp.png"
+  },
+  {
+    "name": "Laura Rubin",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Laura Rubin.png"
+  },
+  {
+    "name": "Glenn Simon",
+    "voicepart": "Bass 2",
+    "image": "photos/Bass 2 - Glenn Simon.png"
+  },
+  {
+    "name": "Klaus Kirsten",
+    "voicepart": "Bass 2",
+    "image": "photos/Bass 2 - Klaus Kirsten.png"
+  },
+  {
+    "name": "Brittany Latchford",
+    "voicepart": "Alto 2",
+    "image": "photos/Alto 2 - Brittany Latchford.png"
+  },
+  {
+    "name": "Scott Merwin",
+    "voicepart": "Bass 2",
+    "image": "photos/Bass 2 - Scott Merwin.png"
+  },
+  {
+    "name": "Brad Richert",
+    "voicepart": "Baritone",
+    "image": "photos/Baritone - Brad Richert.png"
+  },
+  {
+    "name": "Yan Fu",
+    "voicepart": "Alto 1",
+    "image": "photos/Alto 1 - Yan Fu.png"
+  },
+  {
+    "name": "Tsekyi Buchanan",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Tsekyi Buchanan.png"
+  },
+  {
+    "name": "Barbara Remboski",
+    "voicepart": "Soprano 2",
+    "image": "photos/Soprano 2 - Barbara Remboski.png"
+  },
+  {
+    "name": "Peter Schermerhorn",
+    "voicepart": "Bass 2",
+    "image": "photos/Bass 2 - Peter Schermerhorn.png"
+  }
+]
