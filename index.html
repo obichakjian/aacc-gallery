@@ -190,33 +190,12 @@ function render(){
 }
 
 function renderGrouped(){
-  const order = [
-    "Soprano 1","Soprano 2",
-    "Alto 1","Alto 2",
-    "Tenor 1","Tenor 2",
-    "Bass 1","Bass 2",
-    "Baritone",
-    "Director","Pianist"
-  ];
-
-  const parts = order.filter(p => filtered.some(m => m.voicepart === p));
+  const parts = [...new Set(filtered.map(m=>m.voicepart))];
 
   document.getElementById("gallery").innerHTML = parts.map(p=>{
     const list = filtered.filter(m=>m.voicepart===p);
     return `
       <h3 style="padding:10px 15px">${p} (${list.length})</h3>
-      <div class="grid">
-        ${list.map(m=>card(m)).join("")}
-      </div>
-    `;
-  }).join("");
-} (${list.length})</h3>
-      <div class="grid">
-        ${list.map(m=>card(m)).join("")}
-      </div>
-    `;
-  }).join("");
-} (${list.length})</h3>
       <div class="grid">
         ${list.map(m=>card(m)).join("")}
       </div>
@@ -235,7 +214,8 @@ function openImage(src){
   document.getElementById("lightboxImg").src = src;
 }
 
-
+document.getElementById("lightbox").onclick = ()=>{
+  document.getElementById("lightbox").style.display="none";
 };
 
 document.getElementById("search").addEventListener("input", render);
