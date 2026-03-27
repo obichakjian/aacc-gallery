@@ -5,111 +5,101 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AACC Member Gallery</title>
 <style>
-body { font-family: Arial; margin:0; background:#f5f5f5; }
+body { font-family: Arial; margin: 0; background: #f5f5f5; }
 
 .header {
-  background:#1d4ed8;
-  color:white;
-  padding:20px;
-  text-align:center;
+  background: #1d4ed8;
+  color: white;
+  padding: 20px;
+  text-align: center;
 }
 
 .controls {
-  padding:15px;
-  background:white;
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  align-items:center;
+  padding: 15px;
+  background: white;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
 }
 
 input, select {
-  padding:10px;
-  border-radius:8px;
-  border:1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
 .tabs {
-  margin-top:10px;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .tab {
-  padding:8px 12px;
-  margin:4px;
-  border:none;
-  background:#e5e7eb;
-  cursor:pointer;
-  border-radius:20px;
+  padding: 8px 12px;
+  margin: 4px;
+  border: none;
+  background: #e5e7eb;
+  cursor: pointer;
+  border-radius: 20px;
 }
 
 .tab.active {
-  background:#1d4ed8;
-  color:white;
+  background: #1d4ed8;
+  color: white;
 }
 
 .summary {
-  padding:10px 15px;
-  background:white;
-  color:#555;
-  display:flex;
-  justify-content:space-between;
+  padding: 10px 15px;
+  background: white;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-  gap:15px;
-  padding:15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  padding: 15px;
 }
 
 .card {
-  background:white;
-  border-radius:10px;
-  overflow:hidden;
-  cursor:pointer;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .card img {
-  width:100%;
-  display:block;
-}
-
-.lightbox {
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.8);
-  display:none;
-  justify-content:center;
-  align-items:center;
-}
-
-.lightbox img {
-  max-width:90%;
-  max-height:90%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
 }
 </style>
 </head>
 <body>
 
 <div class="header">
-<h2>AACC Member Gallery</h2>
+  <h2>AACC Member Gallery</h2>
 </div>
 
 <div class="controls">
-<input id="search" placeholder="Search name or voice part">
+  <input id="search" placeholder="Search name or voice part">
 
-<select id="sortMode">
-  <option value="section">Grouped</option>
-  <option value="az">A–Z</option>
-  <option value="za">Z–A</option>
-</select>
+  <select id="sortMode">
+    <option value="section">Grouped</option>
+    <option value="az">A–Z</option>
+    <option value="za">Z–A</option>
+  </select>
 
-<select id="showRoles">
-  <option value="show">Show Director/Pianist</option>
-  <option value="hide">Hide Director/Pianist</option>
-</select>
+  <select id="showRoles">
+    <option value="show">Show Director/Pianist</option>
+    <option value="hide">Hide Director/Pianist</option>
+  </select>
 
-<div id="tabs" class="tabs"></div>
+  <div id="tabs" class="tabs"></div>
 </div>
 
 <div class="summary">
@@ -119,104 +109,123 @@ input, select {
 
 <div id="gallery"></div>
 
-<div id="lightbox" class="lightbox">
-  <img id="lightboxImg">
-</div>
-
 <script>
 let members = [];
 let filtered = [];
 let currentFilter = "All";
 
 fetch("members.json")
-.then(res => res.json())
-.then(data => {
-  members = data;
-  document.getElementById("status").textContent = members.length + " members";
-  buildTabs();
-  render();
-});
+  .then(res => {
+    if (!res.ok) throw new Error("Could not load members.json");
+    return res.json();
+  })
+  .then(data => {
+    members = data;
+    document.getElementById("status").textContent = members.length + " members";
+    buildTabs();
+    render();
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById("status").textContent = "Error loading members.json";
+  });
 
-function buildTabs(){
-  const parts = ["All", ...new Set(members.map(m=>m.voicepart))];
+function buildTabs() {
+  const order = [
+    "All",
+    "Soprano 1", "Soprano 2",
+    "Alto 1", "Alto 2",
+    "Tenor 1", "Tenor 2",
+    "Bass 1", "Bass 2",
+    "Baritone",
+    "Director", "Pianist"
+  ];
+
+  const parts = order.filter(p => p === "All" || members.some(m => m.voicepart === p));
   const tabs = document.getElementById("tabs");
 
   tabs.innerHTML = parts.map(p =>
-    `<button class="tab ${p==='All'?'active':''}" onclick="setFilter('${p}',this)">${p}</button>`
+    `<button class="tab ${p === 'All' ? 'active' : ''}" data-part="${p}">${p}</button>`
   ).join("");
+
+  tabs.querySelectorAll(".tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      currentFilter = btn.dataset.part;
+      tabs.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+      btn.classList.add("active");
+      render();
+    });
+  });
 }
 
-function setFilter(part,btn){
-  currentFilter = part;
-  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
-  btn.classList.add("active");
-  render();
+function getLastName(name) {
+  const parts = (name || "").trim().split(/\s+/);
+  return parts.length ? parts[parts.length - 1].toLowerCase() : "";
 }
 
-function getLastName(name){
-  return name.split(" ").pop().toLowerCase();
-}
-
-function render(){
+function render() {
   const term = document.getElementById("search").value.toLowerCase();
   const sort = document.getElementById("sortMode").value;
-  const showRoles = document.getElementById("showRoles").value;
+  const roleMode = document.getElementById("showRoles").value;
 
-  filtered = members.filter(m=>{
-    if(showRoles === "hide" && (m.voicepart === "Director" || m.voicepart === "Pianist")) return false;
+  filtered = members.filter(m => {
+    if (roleMode === "hide" && (m.voicepart === "Director" || m.voicepart === "Pianist")) {
+      return false;
+    }
 
     return (
-      (m.name.toLowerCase().includes(term) ||
-       m.voicepart.toLowerCase().includes(term)) &&
+      ((m.name || "").toLowerCase().includes(term) ||
+       (m.voicepart || "").toLowerCase().includes(term)) &&
       (currentFilter === "All" || m.voicepart === currentFilter)
     );
   });
 
   document.getElementById("count").textContent = filtered.length + " shown";
 
-  if(sort === "section"){
+  if (sort === "section") {
     renderGrouped();
   } else {
-    const sorted = [...filtered].sort((a,b)=>{
-      const res = getLastName(a.name).localeCompare(getLastName(b.name));
-      return sort === "za" ? -res : res;
+    const sorted = [...filtered].sort((a, b) => {
+      const result = getLastName(a.name).localeCompare(getLastName(b.name));
+      return sort === "za" ? -result : result;
     });
 
     document.getElementById("gallery").innerHTML = `
       <div class="grid">
-        ${sorted.map(m=>card(m)).join("")}
-      </div>`;
+        ${sorted.map(m => card(m)).join("")}
+      </div>
+    `;
   }
 }
 
-function renderGrouped(){
-  const parts = [...new Set(filtered.map(m=>m.voicepart))];
+function renderGrouped() {
+  const order = [
+    "Soprano 1", "Soprano 2",
+    "Alto 1", "Alto 2",
+    "Tenor 1", "Tenor 2",
+    "Bass 1", "Bass 2",
+    "Baritone",
+    "Director", "Pianist"
+  ];
 
-  document.getElementById("gallery").innerHTML = parts.map(p=>{
-    const list = filtered.filter(m=>m.voicepart===p);
+  const parts = order.filter(p => filtered.some(m => m.voicepart === p));
+
+  document.getElementById("gallery").innerHTML = parts.map(p => {
+    const list = filtered.filter(m => m.voicepart === p);
     return `
       <h3 style="padding:10px 15px">${p} (${list.length})</h3>
       <div class="grid">
-        ${list.map(m=>card(m)).join("")}
+        ${list.map(m => card(m)).join("")}
       </div>
     `;
   }).join("");
 }
 
-function card(m){
-  return `<div class="card" onclick="openImage('${m.image}')">
-    <img src="${m.image}">
+function card(m) {
+  return `<div class="card">
+    <img src="${m.image}" alt="${m.name}">
   </div>`;
 }
-
-function openImage(src){
-  document.getElementById("lightbox").style.display="flex";
-  document.getElementById("lightboxImg").src = src;
-}
-
-document.getElementById("lightbox").onclick = ()=>{
-  document.getElementById("lightbox").style.display="none";
-};
 
 document.getElementById("search").addEventListener("input", render);
 document.getElementById("sortMode").addEventListener("change", render);
