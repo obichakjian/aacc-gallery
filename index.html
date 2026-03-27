@@ -1,557 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AACC Member Gallery v2</title>
-  <style>
-    :root {
-      --bg: #f4f7fb;
-      --surface: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --accent: #1d4ed8;
-      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-      --radius: 20px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AACC Member Gallery</title>
+<style>
+body { font-family: Arial; margin:0; background:#f5f5f5; }
 
-    * { box-sizing: border-box; }
+.header {
+  background:#1d4ed8;
+  color:white;
+  padding:20px;
+  text-align:center;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: linear-gradient(180deg, #eef4ff 0%, #f7f9fc 220px, #f4f7fb 100%);
-    }
+.controls {
+  padding:15px;
+  background:white;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+}
 
-    .wrap {
-      max-width: 1450px;
-      margin: 0 auto;
-      padding: 24px;
-    }
+input, select {
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ddd;
+}
 
-    .hero {
-      background: linear-gradient(135deg, #1d4ed8, #0f766e);
-      color: white;
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-      margin-bottom: 20px;
-    }
+.tabs {
+  margin-top:10px;
+}
 
-    .hero h1 {
-      margin: 0 0 8px;
-      font-size: clamp(1.8rem, 3vw, 2.7rem);
-    }
+.tab {
+  padding:8px 12px;
+  margin:4px;
+  border:none;
+  background:#e5e7eb;
+  cursor:pointer;
+  border-radius:20px;
+}
 
-    .hero p {
-      margin: 0;
-      max-width: 860px;
-      line-height: 1.55;
-      opacity: 0.96;
-    }
+.tab.active {
+  background:#1d4ed8;
+  color:white;
+}
 
-    .panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow);
-      margin-bottom: 22px;
-    }
+.summary {
+  padding:10px 15px;
+  background:white;
+  color:#555;
+  display:flex;
+  justify-content:space-between;
+}
 
-    .controls {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 14px;
-      align-items: end;
-    }
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:15px;
+  padding:15px;
+}
 
-    .field label {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-weight: 700;
-    }
+.card {
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  cursor:pointer;
+}
 
-    input[type="text"], select {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      font-size: 1rem;
-      background: white;
-    }
+.card img {
+  width:100%;
+  display:block;
+}
 
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
+.lightbox {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.8);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
 
-    .tab {
-      border: 1px solid var(--border);
-      background: #f8fafc;
-      color: #111827;
-      border-radius: 999px;
-      padding: 9px 12px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .tab.active {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
-
-    .summary {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .section {
-      margin-bottom: 32px;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-
-    .section-title {
-      margin: 0;
-      font-size: 1.35rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .badge {
-      background: #dbeafe;
-      color: #1e3a8a;
-      border-radius: 999px;
-      padding: 5px 10px;
-      font-size: 0.86rem;
-      font-weight: 700;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      border-radius: 20px;
-      overflow: hidden;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.18s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .card:hover {
-      transform: translateY(-3px) scale(1.01);
-      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.12);
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .card img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      background: #e5e7eb;
-    }
-
-    .overlay {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 12px;
-      color: white;
-      background: linear-gradient(180deg, rgba(15,23,42,0) 0%, rgba(15,23,42,0.78) 100%);
-    }
-
-    .overlay .name {
-      font-weight: 700;
-      font-size: 0.98rem;
-      line-height: 1.25;
-    }
-
-    .overlay .part {
-      margin-top: 4px;
-      font-size: 0.84rem;
-      opacity: 0.95;
-    }
-
-    .empty {
-      background: white;
-      border: 1px dashed #cbd5e1;
-      border-radius: 18px;
-      padding: 30px;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.84);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      z-index: 1000;
-    }
-
-    .lightbox.open {
-      display: flex;
-    }
-
-    .lightbox-card {
-      position: relative;
-      max-width: min(92vw, 960px);
-      max-height: 92vh;
-    }
-
-    .lightbox img {
-      display: block;
-      max-width: 100%;
-      max-height: 78vh;
-      margin: 0 auto;
-      border-radius: 24px;
-      background: white;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-    }
-
-    .lightbox-meta {
-      margin-top: 14px;
-      text-align: center;
-      color: white;
-    }
-
-    .lightbox-name {
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
-
-    .lightbox-part {
-      margin-top: 6px;
-      opacity: 0.92;
-    }
-
-    .close-btn, .nav-btn {
-      position: absolute;
-      border: none;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.95);
-      color: #111827;
-      width: 42px;
-      height: 42px;
-      cursor: pointer;
-      font-size: 1.15rem;
-      font-weight: 700;
-      box-shadow: var(--shadow);
-    }
-
-    .close-btn {
-      top: -14px;
-      right: -14px;
-    }
-
-    .nav-btn {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .prev-btn { left: -56px; }
-    .next-btn { right: -56px; }
-
-    .swipe-hint {
-      margin-top: 10px;
-      text-align: center;
-      color: rgba(255,255,255,0.82);
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 900px) {
-      .controls {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .prev-btn, .next-btn {
-        display: none;
-      }
-    }
-  </style>
+.lightbox img {
+  max-width:90%;
+  max-height:90%;
+}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <section class="hero">
-      <h1>AACC Member Gallery</h1>
-      <p>Browse the chorus by section, search by name or voice part, and tap any photo to view a larger version with member details.</p>
-    </section>
 
-    <section class="panel">
-      <div class="controls">
-        <div class="field">
-          <label for="search">Search by name or voice part</label>
-          <input id="search" type="text" placeholder="Try: Rick, Alto 1, Baritone" />
-        </div>
-        <div class="field">
-          <label for="sortMode">Sort order</label>
-          <select id="sortMode">
-            <option value="section">Grouped by section</option>
-            <option value="az">Last name A–Z</option>
-            <option value="za">Last name Z–A</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="showRoles">Display extras</label>
-          <select id="showRoles">
-            <option value="show">Show Director and Pianist</option>
-            <option value="hide">Hide Director and Pianist</option>
-          </select>
-        </div>
+<div class="header">
+<h2>AACC Member Gallery</h2>
+</div>
+
+<div class="controls">
+<input id="search" placeholder="Search name or voice part">
+
+<select id="sortMode">
+  <option value="section">Grouped</option>
+  <option value="az">A–Z</option>
+  <option value="za">Z–A</option>
+</select>
+
+<select id="showRoles">
+  <option value="show">Show Director/Pianist</option>
+  <option value="hide">Hide Director/Pianist</option>
+</select>
+
+<div id="tabs" class="tabs"></div>
+</div>
+
+<div class="summary">
+  <div id="status">Loading...</div>
+  <div id="count"></div>
+</div>
+
+<div id="gallery"></div>
+
+<div id="lightbox" class="lightbox">
+  <img id="lightboxImg">
+</div>
+
+<script>
+let members = [];
+let filtered = [];
+let currentFilter = "All";
+
+fetch("members.json")
+.then(res => res.json())
+.then(data => {
+  members = data;
+  document.getElementById("status").textContent = members.length + " members";
+  buildTabs();
+  render();
+});
+
+function buildTabs(){
+  const parts = ["All", ...new Set(members.map(m=>m.voicepart))];
+  const tabs = document.getElementById("tabs");
+
+  tabs.innerHTML = parts.map(p =>
+    `<button class="tab ${p==='All'?'active':''}" onclick="setFilter('${p}',this)">${p}</button>`
+  ).join("");
+}
+
+function setFilter(part,btn){
+  currentFilter = part;
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  btn.classList.add("active");
+  render();
+}
+
+function getLastName(name){
+  return name.split(" ").pop().toLowerCase();
+}
+
+function render(){
+  const term = document.getElementById("search").value.toLowerCase();
+  const sort = document.getElementById("sortMode").value;
+  const showRoles = document.getElementById("showRoles").value;
+
+  filtered = members.filter(m=>{
+    if(showRoles === "hide" && (m.voicepart === "Director" || m.voicepart === "Pianist")) return false;
+
+    return (
+      (m.name.toLowerCase().includes(term) ||
+       m.voicepart.toLowerCase().includes(term)) &&
+      (currentFilter === "All" || m.voicepart === currentFilter)
+    );
+  });
+
+  document.getElementById("count").textContent = filtered.length + " shown";
+
+  if(sort === "section"){
+    renderGrouped();
+  } else {
+    const sorted = [...filtered].sort((a,b)=>{
+      const res = getLastName(a.name).localeCompare(getLastName(b.name));
+      return sort === "za" ? -res : res;
+    });
+
+    document.getElementById("gallery").innerHTML = `
+      <div class="grid">
+        ${sorted.map(m=>card(m)).join("")}
+      </div>`;
+  }
+}
+
+function renderGrouped(){
+  const parts = [...new Set(filtered.map(m=>m.voicepart))];
+
+  document.getElementById("gallery").innerHTML = parts.map(p=>{
+    const list = filtered.filter(m=>m.voicepart===p);
+    return `
+      <h3 style="padding:10px 15px">${p} (${list.length})</h3>
+      <div class="grid">
+        ${list.map(m=>card(m)).join("")}
       </div>
-      <div id="tabs" class="tabs"></div>
-      <div class="summary">
-        <div id="status">Loading members...</div>
-        <div id="resultCount"></div>
-      </div>
-    </section>
+    `;
+  }).join("");
+}
 
-    <div id="gallery"></div>
+function card(m){
+  return `<div class="card" onclick="openImage('${m.image}')">
+    <img src="${m.image}">
+  </div>`;
+}
 
-    <div id="lightbox" class="lightbox" aria-hidden="true">
-      <div class="lightbox-card" id="lightboxCard">
-        <button class="close-btn" id="closeBtn" aria-label="Close">×</button>
-        <button class="nav-btn prev-btn" id="prevBtn" aria-label="Previous">‹</button>
-        <button class="nav-btn next-btn" id="nextBtn" aria-label="Next">›</button>
-        <img id="lightboxImg" src="" alt="Expanded member photo" />
-        
-          <div class="lightbox-part" id="lightboxPart"></div>
-          <div class="swipe-hint">Swipe left or right on mobile</div>
-        </div>
-      </div>
-    </div>
-  </div>
+function openImage(src){
+  document.getElementById("lightbox").style.display="flex";
+  document.getElementById("lightboxImg").src = src;
+}
 
-  <script>
-    let members = [];
-    let filteredMembers = [];
-    let currentFilter = 'All';
-    let currentLightboxIndex = 0;
-    let touchStartX = 0;
+document.getElementById("lightbox").onclick = ()=>{
+  document.getElementById("lightbox").style.display="none";
+};
 
-    const search = document.getElementById('search');
-    const tabs = document.getElementById('tabs');
-    const gallery = document.getElementById('gallery');
-    const status = document.getElementById('status');
-    const resultCount = document.getElementById('resultCount');
-    const sortMode = document.getElementById('sortMode');
-    const showRoles = document.getElementById('showRoles');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    
-    const closeBtn = document.getElementById('closeBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const lightboxCard = document.getElementById('lightboxCard');
+document.getElementById("search").addEventListener("input", render);
+document.getElementById("sortMode").addEventListener("change", render);
+document.getElementById("showRoles").addEventListener("change", render);
+</script>
 
-    fetch('members.json')
-      .then(res => {
-        if (!res.ok) throw new Error(`Could not load members.json (${res.status})`);
-        return res.json();
-      })
-      .then(data => {
-        members = data;
-        status.textContent = `${members.length} members loaded`;
-        buildTabs();
-        render();
-      })
-      .catch(err => {
-        console.error(err);
-        status.textContent = 'Could not load members.json';
-        gallery.innerHTML = `<div class="empty">${err.message}</div>`;
-      });
-
-    function getLastName(name) {
-      const parts = (name || '').trim().split(/\s+/);
-      return parts.length ? parts[parts.length - 1].toLowerCase() : '';
-    }
-
-    function compareByLastName(a, b) {
-      const aLast = getLastName(a.name);
-      const bLast = getLastName(b.name);
-      if (aLast < bLast) return -1;
-      if (aLast > bLast) return 1;
-      return (a.name || '').localeCompare(b.name || '');
-    }
-
-    function buildTabs() {
-      const baseOrder = ['All', 'Soprano 1', 'Soprano 2', 'Alto 1', 'Alto 2', 'Tenor 1', 'Tenor 2', 'Bass 1', 'Bass 2', 'Baritone', 'Director', 'Pianist'];
-      const existing = new Set(members.map(m => m.voicepart));
-      const parts = baseOrder.filter(p => p === 'All' || existing.has(p));
-      tabs.innerHTML = parts.map(part =>
-        `<button class="tab ${part === 'All' ? 'active' : ''}" data-part="${part}">${part}</button>`
-      ).join('');
-    }
-
-    function getVisibleMembers() {
-      const term = search.value.trim().toLowerCase();
-      const includeRoles = showRoles.value === 'show';
-
-      return members.filter(member => {
-        const isRole = member.voicepart === 'Director' || member.voicepart === 'Pianist';
-        if (!includeRoles && isRole) return false;
-
-        const text = `${member.name || ''} ${member.voicepart || ''}`.toLowerCase();
-        const matchesSearch = text.includes(term);
-        const matchesFilter = currentFilter === 'All' || member.voicepart === currentFilter;
-        return matchesSearch && matchesFilter;
-      });
-    }
-
-    function createCard(member, index) {
-      return `
-        <article class="card" data-index="${index}">
-          <img src="${member.image}" alt="${member.name}" loading="lazy" />
-          
-            <div class="part">${member.voicepart}</div>
-          </div>
-        </article>
-      `;
-    }
-
-    function renderGrouped(list) {
-      const order = ['Director', 'Pianist', 'Soprano 1', 'Soprano 2', 'Alto 1', 'Alto 2', 'Tenor 1', 'Tenor 2', 'Bass 1', 'Bass 2', 'Baritone'];
-      const sections = order
-        .map(part => {
-          const sectionMembers = list.filter(m => m.voicepart === part).sort(compareByLastName);
-          if (!sectionMembers.length) return '';
-          return `
-            <section class="section">
-              <div class="section-header">
-                <h3 class="section-title">${part} <span class="badge">${sectionMembers.length}</span></h3>
-              </div>
-              <div class="grid">
-                ${sectionMembers.map(member => createCard(member, filteredMembers.indexOf(member))).join('')}
-              </div>
-            </section>
-          `;
-        })
-        .join('');
-
-      gallery.innerHTML = sections || '<div class="empty">No members match your current search.</div>';
-    }
-
-    function renderFlat(list, direction) {
-      const sorted = [...list].sort((a, b) => direction === 'za' ? -compareByLastName(a, b) : compareByLastName(a, b));
-      gallery.innerHTML = sorted.length
-        ? `<div class="grid">${sorted.map(member => createCard(member, filteredMembers.indexOf(member))).join('')}</div>`
-        : '<div class="empty">No members match your current search.</div>';
-    }
-
-    function render() {
-      filteredMembers = getVisibleMembers();
-      resultCount.textContent = `${filteredMembers.length} shown`;
-      if (sortMode.value === 'section') {
-        renderGrouped(filteredMembers);
-      } else {
-        renderFlat(filteredMembers, sortMode.value);
-      }
-    }
-
-    function openLightbox(index) {
-      if (!filteredMembers.length) return;
-      if (index < 0) index = filteredMembers.length - 1;
-      if (index >= filteredMembers.length) index = 0;
-      currentLightboxIndex = index;
-      const member = filteredMembers[currentLightboxIndex];
-      lightboxImg.src = member.image;
-      
-      lightbox.classList.add('open');
-      lightbox.setAttribute('aria-hidden', 'false');
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      lightboxImg.src = '';
-    }
-
-    tabs.addEventListener('click', (event) => {
-      const btn = event.target.closest('.tab');
-      if (!btn) return;
-      currentFilter = btn.dataset.part;
-      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-      btn.classList.add('active');
-      render();
-    });
-
-    gallery.addEventListener('click', (event) => {
-      const card = event.target.closest('.card');
-      if (!card) return;
-      openLightbox(Number(card.dataset.index));
-    });
-
-    search.addEventListener('input', render);
-    sortMode.addEventListener('change', render);
-    showRoles.addEventListener('change', render);
-    closeBtn.addEventListener('click', closeLightbox);
-    prevBtn.addEventListener('click', () => openLightbox(currentLightboxIndex - 1));
-    nextBtn.addEventListener('click', () => openLightbox(currentLightboxIndex + 1));
-
-    lightbox.addEventListener('click', (event) => {
-      if (event.target === lightbox) closeLightbox();
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (!lightbox.classList.contains('open')) return;
-      if (event.key === 'Escape') closeLightbox();
-      if (event.key === 'ArrowLeft') openLightbox(currentLightboxIndex - 1);
-      if (event.key === 'ArrowRight') openLightbox(currentLightboxIndex + 1);
-    });
-
-    lightboxCard.addEventListener('touchstart', (event) => {
-      touchStartX = event.changedTouches[0].screenX;
-    }, { passive: true });
-
-    lightboxCard.addEventListener('touchend', (event) => {
-      const delta = event.changedTouches[0].screenX - touchStartX;
-      if (Math.abs(delta) < 40) return;
-      if (delta < 0) openLightbox(currentLightboxIndex + 1);
-      else openLightbox(currentLightboxIndex - 1);
-    }, { passive: true });
-  </script>
 </body>
 </html>
