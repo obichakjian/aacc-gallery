@@ -28,7 +28,7 @@
     .wrap {
       max-width: 1450px;
       margin: 0 auto;
-      padding: 18px;
+      padding: 24px;
     }
 
     .hero {
@@ -152,19 +152,23 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 18px;
     }
 
     .card {
-      border-radius: 18px;
+      border-radius: 20px;
       overflow: hidden;
       background: var(--surface);
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
       cursor: pointer;
       position: relative;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      transition: transform 0.18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
     }
 
     .card:hover {
