@@ -71,8 +71,6 @@ input, select {
 
 .card img {
   width:100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
   display:block;
 }
 
@@ -121,7 +119,9 @@ input, select {
 
 <div id="gallery"></div>
 
-
+<div id="lightbox" class="lightbox">
+  <img id="lightboxImg">
+</div>
 
 <script>
 let members = [];
@@ -225,12 +225,15 @@ function renderGrouped(){
 }
 
 function card(m){
-  return `<div class="card" >
+  return `<div class="card" onclick="openImage('${m.image}')">
     <img src="${m.image}">
   </div>`;
 }
 
-
+function openImage(src){
+  document.getElementById("lightbox").style.display="flex";
+  document.getElementById("lightboxImg").src = src;
+}
 
 
 };
