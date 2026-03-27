@@ -28,7 +28,7 @@
     .wrap {
       max-width: 1450px;
       margin: 0 auto;
-      padding: 24px;
+      padding: 18px;
     }
 
     .hero {
@@ -152,19 +152,24 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
     }
 
     .card {
-      border-radius: 20px;
+      border-radius: 18px;
       overflow: hidden;
       background: var(--surface);
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
       cursor: pointer;
       position: relative;
-      transition: transform 0.18s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.12);
     }
 
     .card:hover {
@@ -348,8 +353,7 @@
         <button class="nav-btn prev-btn" id="prevBtn" aria-label="Previous">‹</button>
         <button class="nav-btn next-btn" id="nextBtn" aria-label="Next">›</button>
         <img id="lightboxImg" src="" alt="Expanded member photo" />
-        <div class="lightbox-meta">
-          <div class="lightbox-name" id="lightboxName"></div>
+        
           <div class="lightbox-part" id="lightboxPart"></div>
           <div class="swipe-hint">Swipe left or right on mobile</div>
         </div>
@@ -373,8 +377,7 @@
     const showRoles = document.getElementById('showRoles');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxName = document.getElementById('lightboxName');
-    const lightboxPart = document.getElementById('lightboxPart');
+    
     const closeBtn = document.getElementById('closeBtn');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -438,8 +441,7 @@
       return `
         <article class="card" data-index="${index}">
           <img src="${member.image}" alt="${member.name}" loading="lazy" />
-          <div class="overlay">
-            <div class="name">${member.name}</div>
+          
             <div class="part">${member.voicepart}</div>
           </div>
         </article>
@@ -492,8 +494,7 @@
       currentLightboxIndex = index;
       const member = filteredMembers[currentLightboxIndex];
       lightboxImg.src = member.image;
-      lightboxName.textContent = member.name;
-      lightboxPart.textContent = member.voicepart;
+      
       lightbox.classList.add('open');
       lightbox.setAttribute('aria-hidden', 'false');
     }
